@@ -122,17 +122,27 @@ if analyse_button:
                 st.markdown("### ✅ Evidence found in CV")
 
                 if matched_skills:
-                    for skill in matched_skills:
-                        st.write(f"• {skill}")
+                    st.markdown(
+                        "<br>".join(
+                            f"• {skill}" for skill in matched_skills
+                        ),
+                        unsafe_allow_html=True,
+                    )
                 else:
                     st.write("No matching skills found.")
 
             with col2:
-                st.markdown("### ⚠️ Skills mentioned in JD but not found in CV")
+                st.markdown(
+                    "### ⚠️ Skills mentioned in JD but not found in CV"
+                )
 
                 if missing_skills:
-                    for skill in missing_skills:
-                        st.write(f"• {skill}")
+                    st.markdown(
+                        "<br>".join(
+                            f"• {skill}" for skill in missing_skills
+                        ),
+                        unsafe_allow_html=True,
+                    )
                 else:
                     st.write("No missing skills found.")
 
